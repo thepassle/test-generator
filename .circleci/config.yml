@@ -24,10 +24,21 @@ jobs:
       - add_ssh_keys:
           fingerprints:
             # The SSH key fingerprint
-            - "7a:03:51:11:1c:ad:97:b8:4e:29:47:43:78:79:2c:65"
+            - "00:b3:0e:6e:8a:33:92:a5:41:07:e4:59:f6:16:cc:af"
       - run: ls -la ~/repo
       - run: git config --global user.email "pascalschilp@gmail.com" && git config --global user.name "thepassle" && git remote add testing git@github.com:thepassle/test-output.git
-      - run: npm i && ls -la && mkdir foo && cd foo && rm -rf * && ../node_modules/.bin/yo ../node_modules/generator-open-wc/generators/starter-app/ my-app --force && sudo echo "foo/node_modules/" > .gitignore && ls -la && cd .. && git status && git add --force foo/ && git commit -m "deploy2" && git stash && git push -f testing master
+
+      - run: npm i &&
+       ls -la &&
+       mkdir foo &&
+       cd foo &&
+       npm init open-wc starter-app --tag-name=my-app --no-npm --no-scaffold &&
+       cd .. &&
+       git status &&
+       git add --force foo/ &&
+       git commit -m "deploy2" &&
+       git stash &&
+       git push -f testing master
 
 # it doesnt seem to put it in the folder
 
