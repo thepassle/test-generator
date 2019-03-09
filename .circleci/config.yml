@@ -28,17 +28,7 @@ jobs:
       - run: ls -la ~/repo
       - run: git config --global user.email "pascalschilp@gmail.com" && git config --global user.name "thepassle" && git remote add testing git@github.com:thepassle/test-output.git
 
-      - run: npm i &&
-       ls -la &&
-       mkdir foo &&
-       cd foo &&
-       npm init open-wc starter-app --tag-name=my-app --no-npm --no-scaffold &&
-       cd .. &&
-       git status &&
-       git add --force foo/ &&
-       git commit -m "deploy2" &&
-       git stash &&
-       git push -f testing master
+      - run: npm i && ls -la && mkdir foo && cd foo && npm init open-wc starter-app --tag-name=my-app --no-npm --no-scaffold && cd .. && git status && git add --force foo/ && git commit -m "deploy2" && git stash && git push -f testing master
 
 # it doesnt seem to put it in the folder
 
