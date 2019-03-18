@@ -28,7 +28,7 @@ jobs:
       - run: ls -la ~/repo
       - run: git config --global user.email "pascalschilp@gmail.com" && git config --global user.name "thepassle" && git remote add testing git@github.com:thepassle/test-output2.git
 
-      - run: npm cache clean --force && ls -la && mkdir foo && cd foo && git clone https://github.com/thepassle/test-output2.git && cd test-output2 && git pull testing master && npm init @open-wc starter-app --tag-name=my-app --npm-install=false --scaffold=false && git status && git add --force . && git commit -m "deploy3" && git stash && git subtree push --prefix ./ testing master
+      - run: npm cache clean --force && ls -la && mkdir foo && cd foo && git clone https://github.com/thepassle/test-output2.git && cd test-output2 npm init @open-wc starter-app --tag-name=my-app --npm-install=false --scaffold=false && git status && git add --force . && git commit -m "deploy3" && git stash && git subtree push --prefix ./ testing master
 
 # it doesnt seem to put it in the folder
 
