@@ -26,7 +26,9 @@ jobs:
             # The SSH key fingerprint
             - "00:b3:0e:6e:8a:33:92:a5:41:07:e4:59:f6:16:cc:af"
 
-      - run: git config --global user.email "pascalschilp@gmail.com" && git config --global user.name "thepassle" && git remote add testing git@github.com:thepassle/test-output2.git && npm cache clean --force && ls -la && mkdir foo && cd foo && git clone https://github.com/thepassle/test-output2.git && cd test-output2 && npm init @open-wc starter-app --tag-name=my-app --npm-install=false --scaffold=false && touch ./my-app/asdsad.txt && git status && git add ./my-app/ && git commit -m "deploy3" && git stash && git subtree push --prefix my-app/ testing master
+      - run: git config --global user.email "pascalschilp@gmail.com" && git config --global user.name "thepassle" && git remote add testing git@github.com:thepassle/test-output2.git
+
+      - run: npm cache clean --force && ls -la && mkdir foo && cd foo && npm init @open-wc starter-app --tag-name=my-app --npm-install=false --scaffold=false && touch ./my-app/asdsad.txt && git status && git add ./my-app/ && git commit -m "deploy3" && git stash && git subtree push --force --prefix my-app/ testing master
 
 # it doesnt seem to put it in the folder
 
